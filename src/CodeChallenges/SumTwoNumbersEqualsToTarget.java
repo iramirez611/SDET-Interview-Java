@@ -2,7 +2,7 @@ package CodeChallenges;
 
 import java.util.Arrays;
 
-public class SumTwoNumbersEqualsToN {
+public class SumTwoNumbersEqualsToTarget {
     public static void main(String[] args){
 
         int[] nums = {1, 8, 1, 4, 9, 2, 7, 11, 15};
@@ -14,6 +14,13 @@ public class SumTwoNumbersEqualsToN {
         System.out.println("Result Array -> " + Arrays.toString(sum));
     }
 
+    /**
+     * Two sum int [ ].
+     *
+     * @param nums   the array of integers
+     * @param target the target number to find
+     * @return the int [ ] - returns array of the 2 numbers whose sum equals the target number
+     */
     public static int[] twoSum(int[] nums, int target){
 
         int[] result = new int[2];

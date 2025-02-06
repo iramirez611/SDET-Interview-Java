@@ -13,6 +13,12 @@ public class ArrayReverse {
 
     }
 
+    /**
+     * Reverse array int [ ].
+     *
+     * @param arr the original array of integers
+     * @return the int [ ] original array sorted
+     */
     public static int[] reverseArray(int[] arr) {
 
         int start = 0;
