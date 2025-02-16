@@ -25,7 +25,7 @@ public class CountLettersWord {
             if(letters.containsKey(ch)){
                 letters.put(ch, letters.get(ch)+1);
             }else{
-                //If LinkedHashMap does not contains the letter as key the letter is added with the value 1
+                //If LinkedHashMap does not contain the letter as key the letter is added with the value 1
                 letters.put(ch, 1);
             }
         }
