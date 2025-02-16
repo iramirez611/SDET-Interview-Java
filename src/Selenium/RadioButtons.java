@@ -8,7 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class RadioButtons {
     public static void main(String[] args) throws InterruptedException {
@@ -19,7 +21,8 @@ public class RadioButtons {
         driver.manage().window().maximize();
         WebDriver.Timeouts timeouts = driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
-        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        String url = "https://rahulshettyacademy.com/AutomationPractice/";
+        driver.get(url);
         String testPageTitle = driver.getTitle();
         System.out.println(testPageTitle);
 
@@ -47,9 +50,23 @@ public class RadioButtons {
         inputNameField.sendKeys("Adrian");
         WebElement confirmButton = driver.findElement(By.id("confirmbtn"));
         confirmButton.click();
+        Thread.sleep(Duration.ofSeconds(2));
         String alertText = driver.switchTo().alert().getText();
         System.out.println(alertText);
         driver.switchTo().alert().accept();
+
+        //Switch to new tabs
+        WebElement openTabButton = driver.findElement(By.cssSelector("a#opentab"));
+        openTabButton.click();
+
+        Set<String> allTabs = driver.getWindowHandles();
+        Iterator<String> iterator = allTabs.iterator();
+        String parentTab = iterator.next();
+        while (iterator.hasNext()) {
+            driver.switchTo().window(iterator.next());
+            System.out.println("Page title: " + driver.getTitle());
+        }
+        driver.switchTo().window(parentTab);
 
         Thread.sleep(Duration.ofSeconds(2));
 
